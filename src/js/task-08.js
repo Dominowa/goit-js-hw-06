@@ -1,32 +1,16 @@
 const loginForm = document.querySelector(".login-form");
-loginForm.addEventListener("submit", (event) => {
+loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const formElements = loginForm.elements;
-  let allFieldsFilled = true;
-  for (let i = 0; i < formElements.length; i++) {
-    if (
-      formElements[i].type === "text" ||
-      formElements[i].type === "password"
-    ) {
-      if (formElements[i].value.trim() === "") {
-        allFieldsFilled = false;
-        break;
-      }
-    }
+  const formData = new FormData(event.target);
+
+  const loginData = {};
+  formData.forEach((value, name) => {
+    loginData[name] = value;
+  });
+  if (loginData.email.trim() === "" || loginData.password.trim() === "") {
+    alert("Please fill in all fields.");
+  } else {
+    console.log(loginData);
+    loginForm.reset();
   }
-  if (!allFieldsFilled) {
-    alert("All fields must be filled");
-    return;
-  }
-  const formData = {};
-  for (let i = 0; i < formElements.length; i++) {
-    if (
-      formElements[i].type === "text" ||
-      formElements[i].type === "password"
-    ) {
-      formData[formElements[i].name] = formElements[i].value;
-    }
-  }
-  console.log(formData);
-  loginForm.reset();
 });
