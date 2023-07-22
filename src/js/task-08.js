@@ -1,5 +1,4 @@
 const loginForm = document.querySelector(".login-form");
-
 loginForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -13,7 +12,8 @@ loginForm.addEventListener("submit", function (event) {
   if (loginData.email.trim() === "" || loginData.password.trim() === "") {
     alert("Please fill in all fields.");
   } else {
-    console.log(loginData);
+    console.log("Login:", loginData.email);
+    console.log("Password:", loginData.password);
     loginForm.reset();
   }
 });
