@@ -15,19 +15,19 @@ loginForm.addEventListener("submit", function (event) {
   } else {
     console.log(loginData);
     loginForm.reset();
-    // fetch('/api/login', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(loginData),
-    // })
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   console.log(data);
-    // })
-    // .catch((error) => {
-    //   console.error('Error:', error);
-    // });
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 });
