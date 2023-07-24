@@ -8,11 +8,14 @@ const formSubmitHandler = (event) => {
   } = event.currentTarget.elements;
 
   if (emailValue.trim() === "" || passwordValue.trim() === "") {
-    alert("All the friends shoud be completed ;-)");
+    alert("All the fields should be completed ;-)");
     return;
   }
-  const dataForm = { name: emailValue, password: passwordValue };
-  console.log(dataForm);
+
+  const dataForm = { email: emailValue, password: passwordValue };
+  console.log("Login and Password:", dataForm);
+
   formRef.reset();
 };
+
 formRef.addEventListener("submit", formSubmitHandler);
