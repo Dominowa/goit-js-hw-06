@@ -1,32 +1,20 @@
-const loginForm = document.querySelector(".login-form");
-loginForm.addEventListener("submit", (event) => {
+const formRef = document.querySelector(".login-form");
+
+const formSubmitHandler = (event) => {
   event.preventDefault();
-  const formElements = loginForm.elements;
-  let allFieldsFilled = true;
-  for (let i = 0; i < formElements.length; i++) {
-    if (
-      formElements[i].type === "text" ||
-      formElements[i].type === "password"
-    ) {
-      if (formElements[i].value.trim() === "") {
-        allFieldsFilled = false;
-        break;
-      }
-    }
-  }
-  if (!allFieldsFilled) {
-    alert("All fields must be filled");
+  const formData = new FormData(event.target);
+  const emailValue = formData.get("email");
+  const passwordValue = formData.get("password");
+
+  if (emailValue.trim() === "" || passwordValue.trim() === "") {
+    alert("All the fields should be completed ;-)");
     return;
   }
-  const formData = {};
-  for (let i = 0; i < formElements.length; i++) {
-    if (
-      formElements[i].type === "text" ||
-      formElements[i].type === "password"
-    ) {
-      formData[formElements[i].name] = formElements[i].value;
-    }
-  }
-  console.log(formData);
-  loginForm.reset();
-});
+
+  console.log("Login:", emailValue);
+  console.log("Password:", passwordValue);
+
+  formRef.reset();
+};
+
+formRef.addEventListener("submit", formSubmitHandler);
