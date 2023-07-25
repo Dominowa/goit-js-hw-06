@@ -6,7 +6,7 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
-const ingredientsList = document.createElement("ingredients");
+const ingredientsList = document.getElementById("ingredients");
 
 function createIngredientsList() {
   const itemsHTML = ingredients
