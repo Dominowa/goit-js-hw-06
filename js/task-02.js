@@ -1,3 +1,12 @@
+const ingredients = [
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatoes",
+  "Herbs",
+  "Condiments",
+];
+
 const ingredientsList = document.getElementById("ingredients");
 
 function createIngredientsList() {
